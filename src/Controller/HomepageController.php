@@ -18,7 +18,7 @@ class HomepageController extends AbstractController
     }
 
     /**
-     * @Route("/books/{name}")
+     * @Route("/books/{name}", name="books_show")
      */
     public function show($name)
     {
