@@ -3,26 +3,34 @@
 {% block title %}Список авторов{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>
-        Список авторов
-        <a class="btn btn-sm btn-icon btn-2 btn-primary" href="/author/create">
-            <i class="fa fa-plus"></i>
-        </a>
-    </h1>
 
-    <ul>
-        {% for author in authors %}
-            <li>
-                <a href="/author/{{ author.id }}">{{ author.fullname }}</a>
-                <a class="btn btn-sm btn-icon btn-2 btn-primary" href="/author/{{ author.id }}/edit">
-                    <i class="fa fa-edit"></i>
-                </a>
-                <a class="btn btn-sm btn-icon btn-2 btn-danger" href="/author/{{ author.id }}/remove">
-                    <i class="fa fa-trash"></i>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+<div class="card card-profile shadow mt--300">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>ФИО</td>
+                <td>Количество книг</td>
+                <td>Действия</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td data-toggle="tooltip" data-placement="top" title="{{ author.surname }} {{ author.name }} {{ author.midname }}">
+                        {{ author.fullname }}
+                    </td>
+                    <td>{{ author.books|length }}</td>
+                    <td>
+                        <a class="btn btn-sm btn-icon btn-2 btn-primary" href="/author/{{ author.id }}/edit">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-sm btn-icon btn-2 btn-danger" href="/author/{{ author.id }}/remove">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

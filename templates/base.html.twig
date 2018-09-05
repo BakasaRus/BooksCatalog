@@ -66,7 +66,59 @@
   </header>
   <main>
     <div class="position-relative">
-        {% block body %}{% endblock %}
+      <section class="section section-lg section-shaped pb-300">
+          <div class="shape shape-style-1 shape-primary">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+          <!-- SVG separator -->
+          <div class="separator separator-bottom separator-skew">
+              <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+              </svg>
+          </div>
+      </section>
+
+      <section class="section section-lg pt-lg-0 mt--300">
+          <div class="container">
+            {% block body %}{% endblock %}
+          </div>
+      </section>
+
+      <section class="section section-lg">
+          <div class="container">
+              <div class="row row-grid justify-content-center">
+                  <div class="col-lg-8 text-center">
+                      <h2 class="display-3">Хотите помочь с наполнением каталога?</h2>
+                      <p class="lead">
+                          Наш каталог ежедневно пополняется новыми книгами, но без помощи добровольцев всего этого не было бы. Если у Вас есть информация о неизвестной нам книге, мы будем рады, если Вы её добавите вместе с автором.
+                      </p>
+                      <div class="btn-wrapper">
+                          <a href="/book/create" class="btn btn-primary">
+                              <span class="btn-inner--icon">
+                                  <i class="fa fa-plus mr-2"></i>
+                              </span>
+                              <span>Добавить книгу</span>
+                          </a>
+                          <a href="/author/create" class="btn btn-primary">
+                              <span class="btn-inner--icon">
+                                  <i class="fa fa-plus mr-2"></i>
+                              </span>
+                              <span>Добавить автора</span>
+                          </a>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </section>
     </div>
   </main>
 
