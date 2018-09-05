@@ -16,14 +16,4 @@ class HomepageController extends AbstractController
             'controller_name' => 'HomepageController',
         ]);
     }
-
-    /**
-     * @Route("/books/{name}", name="books_show")
-     */
-    public function show($name)
-    {
-        return $this->render('homepage/book.html.twig', [
-            'name' => $name
-        ]);
-    }
 }

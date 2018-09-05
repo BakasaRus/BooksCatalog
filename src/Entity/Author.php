@@ -84,6 +84,14 @@ class Author
         return $this;
     }
 
+    // Special getter for full name with initials 
+    public function getFullname(): ?string
+    {
+        return $this->surname . ' ' . 
+            mb_substr($this->name, 0, 1) . '. ' . 
+            mb_substr($this->midname, 0, 1) . '.';
+    }
+
     /**
      * @return Collection|Book[]
      */
