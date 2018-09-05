@@ -53,4 +53,44 @@ class AuthorController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/author/{id}/edit", name="author_edit")
+     */
+    public function edit(Author $author, Request $request)
+    {
+        $form = $this->createFormBuilder($author)
+            ->add('name', TextType::class, ['label' => 'Имя'])
+            ->add('midname', TextType::class, ['label' => 'Отчество'])
+            ->add('surname', TextType::class, ['label' => 'Фамилия'])
+            ->add('submit', SubmitType::class, ['label' => 'Изменить автора'])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $author = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($author);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('author');
+        }
+        
+        return $this->render('author/create.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/author/{id}/remove", name="author_delete")
+     */
+    public function remove(Author $author)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($author);
+        $entityManager->flush();
+        return $this->redirectToRoute('author');
+    }
 }

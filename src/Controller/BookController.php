@@ -40,7 +40,8 @@ class BookController extends AbstractController
             ->add('authors', EntityType::class, [
                 'class' => Author::class,
                 'choice_label' => 'surname',
-                'multiple' => true
+                'multiple' => true,
+                'required' => false
             ])
             ->add('submit', SubmitType::class)
             ->getForm();

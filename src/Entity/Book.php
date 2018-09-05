@@ -29,7 +29,7 @@ class Book
     private $publicationYear;
 
     /**
-     * @ORM\Column(type="string", length=13)
+     * @ORM\Column(type="string", length=255)
      */
     private $isbn;
 
