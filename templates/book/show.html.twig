@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ book.title }}</h1>
+    <span>
+        ISBN: {{ book.isbn }} <br>
+        Год издания: {{ book.publicationYear }} <br>
+        Количество страниц: {{ book.pageCount }} <br>
+        {% if book.authors is not empty %}
+            Авторы:
+            <ul>
+                {% for author in book.authors %}
+                    <li>{{ author.fullname }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

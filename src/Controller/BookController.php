@@ -61,4 +61,60 @@ class BookController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/book/{id}", name="book_show")
+     */
+    public function show(Book $book)
+    {
+        return $this->render('book/show.html.twig', [
+            'book' => $book
+        ]);
+    }
+
+    /**
+     * @Route("/book/{id}/edit", name="book_edit")
+     */
+    public function edit(Book $book, Request $request)
+    {
+        $form = $this->createFormBuilder($book)
+            ->add('title', TextType::class, ['label' => 'Название книги'])
+            ->add('publicationYear', IntegerType::class)
+            ->add('isbn', TextType::class)
+            ->add('pageCount', IntegerType::class)
+            ->add('authors', EntityType::class, [
+                'class' => Author::class,
+                'choice_label' => 'surname',
+                'multiple' => true,
+                'required' => false
+            ])
+            ->add('submit', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $book = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($book);
+            $entityManager->flush();
+            return $this->redirectToRoute('book');
+        }
+
+        return $this->render('book/create.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/book/{id}/remove", name="book_remove")
+     */
+    public function remove(Book $book)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($book);
+        $entityManager->flush();
+        return $this->redirecttoRoute("book");
+    }
 }

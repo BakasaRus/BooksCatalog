@@ -14,7 +14,7 @@
     <ul>
         {% for author in authors %}
             <li>
-                {{ author.fullname }}
+                <a href="/author/{{ author.id }}">{{ author.fullname }}</a>
                 <a class="btn btn-sm btn-icon btn-2 btn-primary" href="/author/{{ author.id }}/edit">
                     <i class="fa fa-edit"></i>
                 </a>

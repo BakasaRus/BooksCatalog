@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ author.fullname }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ author.surname }} {{ author.name }} {{ author.midname }}</h1>
+    <span>
+        {% if author.books is empty %}
+            Пока что у этого автора нет книг
+        {% else %}
+            Книги:
+            <ul>
+                {% for book in author.books %}
+                    <li>{{ book.title }} (ISBN: {{ book.isbn }})</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

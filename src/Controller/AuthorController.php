@@ -55,6 +55,16 @@ class AuthorController extends AbstractController
     }
 
     /**
+     * @Route("/author/{id}", name="author_show")
+     */
+    public function show(Author $author)
+    {
+        return $this->render('author/show.html.twig', [
+            'author' => $author
+        ]);
+    }
+
+    /**
      * @Route("/author/{id}/edit", name="author_edit")
      */
     public function edit(Author $author, Request $request)
@@ -84,7 +94,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/author/{id}/remove", name="author_delete")
+     * @Route("/author/{id}/remove", name="author_remove")
      */
     public function remove(Author $author)
     {

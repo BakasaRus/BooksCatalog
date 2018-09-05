@@ -4,7 +4,12 @@
 
 {% block body %}
 <div class="container">
-    <h1>Список книг</h1>
+    <h1>
+        Список книг
+        <a class="btn btn-sm btn-icon btn-2 btn-primary" href="/book/create">
+            <i class="fa fa-plus"></i>
+        </a>
+    </h1>
 
     {% if books is empty %}
         <h2>В каталоге нет ни одной книги</h2>
@@ -12,10 +17,13 @@
         <ul>
             {% for book in books %}
                 <li>
-                    {{ book.title }}. ({{ book.publicationYear }}, ISBN: {{ book.isbn }})
-                    {% for author in book.authors %}
-                        <br>{{ author.fullname }}
-                    {% endfor %}
+                    <a href="/book/{{ book.id }}">{{ book.title }} (ISBN: {{ book.isbn }})</a>
+                    <a class="btn btn-sm btn-icon btn-2 btn-primary" href="/book/{{ book.id }}/edit">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a class="btn btn-sm btn-icon btn-2 btn-danger" href="/book/{{ book.id }}/remove">
+                        <i class="fa fa-trash"></i>
+                    </a>
                 </li>
             {% endfor %}
         </ul>
