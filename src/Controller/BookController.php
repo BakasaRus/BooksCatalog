@@ -16,6 +16,7 @@ class BookController extends AbstractController
 {
     /**
      * @Route("/book", name="book")
+     * @Route("/", name="homepage")
      */
     public function index()
     {
@@ -39,7 +40,7 @@ class BookController extends AbstractController
             ->add('pageCount', IntegerType::class)
             ->add('authors', EntityType::class, [
                 'class' => Author::class,
-                'choice_label' => 'surname',
+                'choice_label' => 'fullname',
                 'multiple' => true,
                 'required' => false
             ])

@@ -46,6 +46,11 @@ class Book
      */
     private $authors;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cover;
+
     public function __construct()
     {
         $this->authors = new ArrayCollection();
@@ -126,6 +131,18 @@ class Book
         if ($this->authors->contains($author)) {
             $this->authors->removeElement($author);
         }
+
+        return $this;
+    }
+
+    public function getCover(): ?string
+    {
+        return $this->cover;
+    }
+
+    public function setCover(?string $cover): self
+    {
+        $this->cover = $cover;
 
         return $this;
     }
