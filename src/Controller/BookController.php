@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\HttpFoundation\File\File;
 
 class BookController extends AbstractController
 {
@@ -44,6 +46,7 @@ class BookController extends AbstractController
                 'multiple' => true,
                 'required' => false
             ])
+            ->add('cover', FileType::class, ['required' => false, 'data_class' => null])
             ->add('submit', SubmitType::class)
             ->getForm();
 
@@ -51,10 +54,23 @@ class BookController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            $file = $form['cover']->getData();
+            $coverName = 'placeholder.jpg';
+            if (!is_null($file))
+            {
+                $coverName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move(
+                    $this->getParameter('covers_directory'),
+                    $coverName
+                );
+            }
+
             $book = $form->getData();
+            $book->setCover($coverName);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();
+
             return $this->redirectToRoute('book');
         }
 
@@ -78,6 +94,10 @@ class BookController extends AbstractController
      */
     public function edit(Book $book, Request $request)
     {
+        $book->setCover(
+            new File($this->getParameter('covers_directory').'/'.$book->getCover())
+        );
+
         $form = $this->createFormBuilder($book)
             ->add('title', TextType::class, ['label' => 'Название книги'])
             ->add('publicationYear', IntegerType::class)
@@ -89,6 +109,7 @@ class BookController extends AbstractController
                 'multiple' => true,
                 'required' => false
             ])
+            ->add('cover', FileType::class, ['required' => false, 'data_class' => null])
             ->add('submit', SubmitType::class)
             ->getForm();
 
@@ -96,10 +117,23 @@ class BookController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            $file = $form['cover']->getData();
+            $coverName = 'placeholder.jpg';
+            if (!is_null($file))
+            {
+                $coverName = md5(uniqid()) . '.' . $file->guessExtension();
+                $file->move(
+                    $this->getParameter('covers_directory'),
+                    $coverName
+                );
+            }
+
             $book = $form->getData();
+            $book->setCover($coverName);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();
+            
             return $this->redirectToRoute('book');
         }
 
