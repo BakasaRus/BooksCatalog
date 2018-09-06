@@ -3,21 +3,40 @@
 {% block title %}{{ book.title }}{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>{{ book.title }}</h1>
-    <span>
-        ISBN: {{ book.isbn }} <br>
-        Год издания: {{ book.publicationYear }} <br>
-        Количество страниц: {{ book.pageCount }} <br>
-        Имя файла: {{ book.cover }} <br>
-        {% if book.authors is not empty %}
-            Авторы:
-            <ul>
-                {% for author in book.authors %}
-                    <li>{{ author.fullname }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </span>
+<div class="card card-profile shadow mt--300">
+    <div class="p-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="/covers/{{ book.cover }}" alt="Обложка книги {{ book.title }}" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-8">
+                <h1 class="display-3">
+                    {{ book.title }}
+                    {% if book.authors is not empty %}
+                        <small class="text-muted">
+                            {% for author in book.authors %}
+                                {{ author.fullname }} {% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </small>
+                    {% endif %}
+                </h1>
+                <span>
+                    ISBN: {{ book.isbn }} <br>
+                    Год издания: {{ book.publicationYear }} <br>
+                    Количество страниц: {{ book.pageCount }}
+                </span>
+                <div class="btn-wrapper mt-3">
+                    <a href="/book/{{ book.id }}/edit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-edit mr-1"></i>
+                        Редактировать
+                    </a>
+                    <a href="/book/{{ book.id }}/remove" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash mr-1"></i>
+                        Удалить
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

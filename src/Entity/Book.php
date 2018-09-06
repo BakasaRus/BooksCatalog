@@ -137,6 +137,8 @@ class Book
 
     public function getCover(): ?string
     {
+        if ($this->cover == '')
+            return 'placeholder.jpg';
         return $this->cover;
     }
 
