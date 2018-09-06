@@ -3,6 +3,8 @@
 {% block title %}{{ author.fullname }}{% endblock %}
 
 {% block body %}
-    <h1 class="display-2 text-white mb-5">{{ author.surname }} {{ author.name }} {{ author.midname }}</h1>
-    {% include 'book/list.html.twig' with {'books': author.books} %}
+    <div class="mt--300">
+        <h1 class="display-2 text-white mb-5">{{ author.surname }} {{ author.name }} {{ author.midname }}</h1>
+        {% include 'book/list.html.twig' with {'books': author.books} %}
+    </div>
 {% endblock %}

@@ -6,7 +6,7 @@
 
 <div class="row row-grid">
     {% for book in books %}
-    <div class="col-lg-3 mb-5">
+    <div class="col-lg-3 col-md-4 col-6 mb-5">
         <div class="card card-faded card-lift--hover shadow border-0">
             <img class="card-img-top img-responsive" src="/covers/{{ book.cover | default("placeholder.jpg") }}" alt="No preview available">
             <a class="card-img-overlay" href="/book/{{ book.id }}">

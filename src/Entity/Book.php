@@ -9,8 +9,14 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
- * @UniqueEntity("isbn")
- * @UniqueEntity(fields={"title", "publicationYear"})
+ * @UniqueEntity(
+ *  "isbn", 
+ *  message="Книга с таким ISBN уже имеется в каталоге"
+ * )
+ * @UniqueEntity(
+ *  fields={"title", "publicationYear"}, 
+ *  message="Книга с таким названием и годом публикации уже имеется в каталоге"
+ * )
  */
 class Book
 {

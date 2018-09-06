@@ -4,14 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Entity\Author;
+use App\Form\BookType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\HttpFoundation\File\File;
 
 class BookController extends AbstractController
@@ -35,21 +31,7 @@ class BookController extends AbstractController
     public function create(Request $request)
     {
         $book = new Book();
-        $form = $this->createFormBuilder($book)
-            ->add('title', TextType::class, ['label' => 'Название книги'])
-            ->add('publicationYear', IntegerType::class)
-            ->add('isbn', TextType::class)
-            ->add('pageCount', IntegerType::class)
-            ->add('authors', EntityType::class, [
-                'class' => Author::class,
-                'choice_label' => 'fullname',
-                'multiple' => true,
-                'required' => false
-            ])
-            ->add('cover', FileType::class, ['required' => false, 'data_class' => null])
-            ->add('submit', SubmitType::class)
-            ->getForm();
-
+        $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -94,31 +76,13 @@ class BookController extends AbstractController
      */
     public function edit(Book $book, Request $request)
     {
-        $book->setCover(
-            new File($this->getParameter('covers_directory').'/'.$book->getCover())
-        );
-
-        $form = $this->createFormBuilder($book)
-            ->add('title', TextType::class, ['label' => 'Название книги'])
-            ->add('publicationYear', IntegerType::class)
-            ->add('isbn', TextType::class)
-            ->add('pageCount', IntegerType::class)
-            ->add('authors', EntityType::class, [
-                'class' => Author::class,
-                'choice_label' => 'surname',
-                'multiple' => true,
-                'required' => false
-            ])
-            ->add('cover', FileType::class, ['required' => false, 'data_class' => null])
-            ->add('submit', SubmitType::class)
-            ->getForm();
-
+        $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
             $file = $form['cover']->getData();
-            $coverName = 'placeholder.jpg';
+            $coverName = $book->getCover();
             if (!is_null($file))
             {
                 $coverName = md5(uniqid()) . '.' . $file->guessExtension();

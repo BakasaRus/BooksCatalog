@@ -3,11 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Author;
+use App\Form\AuthorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class AuthorController extends AbstractController
 {
@@ -29,14 +28,7 @@ class AuthorController extends AbstractController
     public function create(Request $request)
     {
         $author = new Author();
-
-        $form = $this->createFormBuilder($author)
-            ->add('name', TextType::class, ['label' => 'Имя'])
-            ->add('midname', TextType::class, ['label' => 'Отчество'])
-            ->add('surname', TextType::class, ['label' => 'Фамилия'])
-            ->add('submit', SubmitType::class, ['label' => 'Добавить автора'])
-            ->getForm();
-
+        $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -69,13 +61,7 @@ class AuthorController extends AbstractController
      */
     public function edit(Author $author, Request $request)
     {
-        $form = $this->createFormBuilder($author)
-            ->add('name', TextType::class, ['label' => 'Имя'])
-            ->add('midname', TextType::class, ['label' => 'Отчество'])
-            ->add('surname', TextType::class, ['label' => 'Фамилия'])
-            ->add('submit', SubmitType::class, ['label' => 'Изменить автора'])
-            ->getForm();
-
+        $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())

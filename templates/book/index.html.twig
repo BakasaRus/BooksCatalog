@@ -3,5 +3,7 @@
 {% block title %}Книги{% endblock %}
 
 {% block body %}
-{% include 'book/list.html.twig' with {'books': books} %}
+<div class="mt--300">
+    {% include 'book/list.html.twig' with {'books': books} %}
+</div>
 {% endblock %}

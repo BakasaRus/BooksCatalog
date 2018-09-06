@@ -9,7 +9,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AuthorRepository")
- * @UniqueEntity(fields={"name", "surname", "midname"})
+ * @UniqueEntity(
+ *  fields={"surname", "name", "midname"},
+ *  message="Этот автор уже существует в каталоге"
+ * )
  */
 class Author
 {
