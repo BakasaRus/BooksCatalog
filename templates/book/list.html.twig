@@ -1,0 +1,23 @@
+<style>
+    .card-faded .card-img-overlay {
+        background-color: rgba(51, 51, 51, 0.5);
+    }
+</style>
+
+<div class="row row-grid">
+    {% for book in books %}
+    <div class="col-lg-3 mb-5">
+        <div class="card card-faded card-lift--hover shadow border-0">
+            <img class="card-img-top img-responsive" src="/covers/{{ book.cover | default("placeholder.jpg") }}" alt="No preview available">
+            <a class="card-img-overlay" href="/book/{{ book.id }}">
+                <h5 class="text-white text-uppercase">{{ book.title }}</h5>
+                <p class="description text-white mt-3">
+                    {% for author in book.authors %}
+                        {{ author.fullname }} {% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

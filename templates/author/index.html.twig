@@ -4,8 +4,8 @@
 
 {% block body %}
 
-<div class="card card-profile shadow mt--300">
-    <table class="table table-hover table-striped">
+<div class="card shadow mt--300">
+    <table class="table table-hover table-striped mb-0">
         <thead class="text-center">
             <tr>
                 <th>ФИО</th>
@@ -17,7 +17,7 @@
             {% for author in authors %}
                 <tr>
                     <td data-toggle="tooltip" data-placement="top" title="{{ author.surname }} {{ author.name }} {{ author.midname }}">
-                        {{ author.fullname }}
+                        <a href="/author/{{ author.id }}">{{ author.fullname }}</a>
                     </td>
                     <td>{{ author.books|length }}</td>
                     <td>
