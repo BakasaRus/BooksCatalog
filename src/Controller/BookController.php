@@ -38,7 +38,7 @@ class BookController extends AbstractController
         {
             $file = $form['cover']->getData();
             $coverName = 'placeholder.jpg';
-            if (!is_null($file))
+            if (!is_null($file) && $file->isValid())
             {
                 $coverName = md5(uniqid()) . '.' . $file->guessExtension();
                 $file->move(
@@ -83,7 +83,7 @@ class BookController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $file = $form['cover']->getData();
-            if (!is_null($file))
+            if (!is_null($file) && $file->isValid())
             {
                 $coverName = md5(uniqid()) . '.' . $file->guessExtension();
                 $file->move(
