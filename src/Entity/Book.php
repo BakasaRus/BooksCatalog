@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
@@ -14,8 +15,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *  message="Книга с таким ISBN уже имеется в каталоге"
  * )
  * @UniqueEntity(
- *  fields={"title", "publicationYear"}, 
- *  message="Книга с таким названием и годом публикации уже имеется в каталоге"
+ *      fields={"title", "publicationYear"}, 
+ *      message="Книга с таким названием и годом публикации уже имеется в каталоге"
  * )
  */
 class Book
@@ -39,6 +40,10 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Isbn(
+     *     type="isbn13",
+     *     message="Нужно ввести правильное значение ISBN-13"
+     * )
      */
     private $isbn;
 
@@ -54,6 +59,10 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Image(
+     *      mimeTypes={"image/png", "image/jpeg"},
+     *      mimeTypesMessage="Каталог поддерживает обложки форматов PNG и JPEG"
+     * )
      */
     private $cover;
 
@@ -98,7 +107,7 @@ class Book
 
     public function setIsbn(string $isbn): self
     {
-        $this->isbn = $isbn;
+        $this->isbn = str_replace('-', '', $isbn);
 
         return $this;
     }

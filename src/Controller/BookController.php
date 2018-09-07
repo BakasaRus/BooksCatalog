@@ -76,13 +76,13 @@ class BookController extends AbstractController
      */
     public function edit(Book $book, Request $request)
     {
+        $coverName = $book->getCover();
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
             $file = $form['cover']->getData();
-            $coverName = $book->getCover();
             if (!is_null($file))
             {
                 $coverName = md5(uniqid()) . '.' . $file->guessExtension();
