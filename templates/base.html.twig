@@ -25,7 +25,7 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="/">
-          <h1 class="display-4 text-white">Книжный каталог</h1>
+          <h1 class="display-4 text-white">{{ 'site.title'|trans }}</h1>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -50,13 +50,13 @@
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="/book">
                 <i class="fa fa-book"></i>
-                <span class="nav-link-inner--text">Книги</span>
+                <span class="nav-link-inner--text">{{ 'site.books'|trans }}</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="/author">
                 <i class="fa fa-user"></i>
-                <span class="nav-link-inner--text">Авторы</span>
+                <span class="nav-link-inner--text">{{ 'site.authors'|trans }}</span>
               </a>
             </li>
           </ul>
@@ -128,7 +128,7 @@
         <div class="col-md-6">
           <div class="copyright">
             &copy; 2018
-            <a href="/">Книжный каталог</a>.
+            <a href="/">{{ 'site.title'|trans }}</a>.
           </div>
         </div>
         <div class="col-md-6">

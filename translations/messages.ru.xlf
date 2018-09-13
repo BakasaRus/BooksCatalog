@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="form.create">
+                <source>form.create</source>
+                <target>Создать</target>
+            </trans-unit>
+            <trans-unit id="form.update">
+                <source>form.update</source>
+                <target>Обновить</target>
+            </trans-unit>
+
+            <trans-unit id="form.book.title">
+                <source>form.book.title</source>
+                <target>Название книги</target>
+            </trans-unit>
+            <trans-unit id="form.book.year">
+                <source>form.book.year</source>
+                <target>Год публикации</target>
+            </trans-unit>
+            <trans-unit id="form.book.isbn">
+                <source>form.book.isbn</source>
+                <target>ISBN</target>
+            </trans-unit>
+            <trans-unit id="form.book.pages">
+                <source>form.book.pages</source>
+                <target>Количество страниц</target>
+            </trans-unit>
+            <trans-unit id="form.book.authors">
+                <source>form.book.authors</source>
+                <target>Авторы</target>
+            </trans-unit>
+            <trans-unit id="form.book.cover">
+                <source>form.book.cover</source>
+                <target>Обложка</target>
+            </trans-unit>
+            <trans-unit id="form.book.create">
+                <source>form.book.create</source>
+                <target>Создать книгу</target>
+            </trans-unit>
+            <trans-unit id="form.book.update">
+                <source>form.book.update</source>
+                <target>Обновить книгу</target>
+            </trans-unit>
+
+            <trans-unit id="form.author.name">
+                <source>form.author.name</source>
+                <target>Имя</target>
+            </trans-unit>
+            <trans-unit id="form.author.surname">
+                <source>form.author.surname</source>
+                <target>Фамилия</target>
+            </trans-unit>
+            <trans-unit id="form.author.midname">
+                <source>form.author.midname</source>
+                <target>Отчество</target>
+            </trans-unit>
+            <trans-unit id="form.author.create">
+                <source>form.author.create</source>
+                <target>Создать автора</target>
+            </trans-unit>
+            <trans-unit id="form.author.update">
+                <source>form.author.update</source>
+                <target>Обновить автора</target>
+            </trans-unit>
+
+            <trans-unit id="site.title">
+                <source>site.title</source>
+                <target>Книжный каталог</target>
+            </trans-unit>
+            <trans-unit id="site.books">
+                <source>site.books</source>
+                <target>Книги</target>
+            </trans-unit>
+            <trans-unit id="site.authors">
+                <source>site.authors</source>
+                <target>Авторы</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

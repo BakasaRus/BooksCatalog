@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Author;
 use App\Form\AuthorType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +29,10 @@ class AuthorController extends AbstractController
     public function create(Request $request)
     {
         $author = new Author();
-        $form = $this->createForm(AuthorType::class, $author);
+        $form = $this->createForm(AuthorType::class, $author)
+            ->add('submit', SubmitType::class, [
+                'label' => 'form.create'
+            ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -43,6 +47,7 @@ class AuthorController extends AbstractController
         
         return $this->render('author/create.html.twig', [
             'form' => $form->createView(),
+            'title' => 'form.author.create'
         ]);
     }
 
@@ -61,7 +66,10 @@ class AuthorController extends AbstractController
      */
     public function edit(Author $author, Request $request)
     {
-        $form = $this->createForm(AuthorType::class, $author);
+        $form = $this->createForm(AuthorType::class, $author)
+            ->add('submit', SubmitType::class, [
+                'label' => 'form.update'
+            ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -76,6 +84,7 @@ class AuthorController extends AbstractController
         
         return $this->render('author/create.html.twig', [
             'form' => $form->createView(),
+            'title' => 'form.author.update'
         ]);
     }
 

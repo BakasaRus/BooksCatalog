@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Book;
 use App\Entity\Author;
 use App\Form\BookType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +32,10 @@ class BookController extends AbstractController
     public function create(Request $request)
     {
         $book = new Book();
-        $form = $this->createForm(BookType::class, $book);
+        $form = $this->createForm(BookType::class, $book)
+            ->add('submit', SubmitType::class, [
+                'label' => 'form.create'
+            ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -58,6 +62,7 @@ class BookController extends AbstractController
 
         return $this->render('book/create.html.twig', [
             'form' => $form->createView(),
+            'title' => 'form.book.create'
         ]);
     }
 
@@ -77,7 +82,10 @@ class BookController extends AbstractController
     public function edit(Book $book, Request $request)
     {
         $coverName = $book->getCover();
-        $form = $this->createForm(BookType::class, $book);
+        $form = $this->createForm(BookType::class, $book)
+            ->add('submit', SubmitType::class, [
+                'label' => 'form.update'
+            ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -103,6 +111,7 @@ class BookController extends AbstractController
 
         return $this->render('book/create.html.twig', [
             'form' => $form->createView(),
+            'title' => 'form.book.update'
         ]);
     }
 

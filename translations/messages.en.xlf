@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="form.create">
+                <source>form.create</source>
+                <target>Create</target>
+            </trans-unit>
+            <trans-unit id="form.update">
+                <source>form.update</source>
+                <target>Update</target>
+            </trans-unit>
+
+            <trans-unit id="form.book.title">
+                <source>form.book.title</source>
+                <target>Title of the book</target>
+            </trans-unit>
+            <trans-unit id="form.book.year">
+                <source>form.book.year</source>
+                <target>Year of publication</target>
+            </trans-unit>
+            <trans-unit id="form.book.isbn">
+                <source>form.book.isbn</source>
+                <target>ISBN</target>
+            </trans-unit>
+            <trans-unit id="form.book.pages">
+                <source>form.book.pages</source>
+                <target>Count of pages</target>
+            </trans-unit>
+            <trans-unit id="form.book.authors">
+                <source>form.book.authors</source>
+                <target>Authors</target>
+            </trans-unit>
+            <trans-unit id="form.book.cover">
+                <source>form.book.cover</source>
+                <target>Cover</target>
+            </trans-unit>
+            <trans-unit id="form.book.create">
+                <source>form.book.create</source>
+                <target>Create a book</target>
+            </trans-unit>
+            <trans-unit id="form.book.update">
+                <source>form.book.update</source>
+                <target>Update the book</target>
+            </trans-unit>
+
+            <trans-unit id="form.author.name">
+                <source>form.author.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="form.author.surname">
+                <source>form.author.surname</source>
+                <target>Surname</target>
+            </trans-unit>
+            <trans-unit id="form.author.midname">
+                <source>form.author.midname</source>
+                <target>Middle name</target>
+            </trans-unit>
+            <trans-unit id="form.author.create">
+                <source>form.author.create</source>
+                <target>Create an author</target>
+            </trans-unit>
+            <trans-unit id="form.author.update">
+                <source>form.author.update</source>
+                <target>Update the author</target>
+            </trans-unit>
+
+            <trans-unit id="site.title">
+                <source>site.title</source>
+                <target>Books' Catalog</target>
+            </trans-unit>
+            <trans-unit id="site.books">
+                <source>site.books</source>
+                <target>Books</target>
+            </trans-unit>
+            <trans-unit id="site.authors">
+                <source>site.authors</source>
+                <target>Authors</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
