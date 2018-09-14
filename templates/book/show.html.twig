@@ -7,7 +7,7 @@
     <div class="p-5">
         <div class="row">
             <div class="col-lg-4">
-                <img src="/covers/{{ book.cover }}" alt="Обложка книги {{ book.title }}" class="img-fluid rounded">
+                <img src="/covers/{{ book.cover }}" alt="{{ book.title }}" class="img-fluid rounded">
             </div>
             <div class="col-lg-8">
                 <h1 class="display-3">
@@ -21,18 +21,18 @@
                     {% endif %}
                 </h1>
                 <span>
-                    ISBN: {{ book.isbn }} <br>
-                    Год издания: {{ book.publicationYear }} <br>
-                    Количество страниц: {{ book.pageCount }}
+                    {{ 'form.book.isbn'|trans }}: {{ book.isbn }} <br>
+                    {{ 'form.book.year'|trans }}: {{ book.publicationYear }} <br>
+                    {{ 'form.book.pages'|trans }}: {{ book.pageCount }}
                 </span>
                 <div class="btn-wrapper mt-3">
                     <a href="/book/{{ book.id }}/edit" class="btn btn-primary btn-sm">
                         <i class="fa fa-edit mr-1"></i>
-                        Редактировать
+                        {{ 'form.edit'|trans }}
                     </a>
                     <a href="/book/{{ book.id }}/remove" class="btn btn-danger btn-sm">
                         <i class="fa fa-trash mr-1"></i>
-                        Удалить
+                        {{ 'form.delete'|trans }}
                     </a>
                 </div>
             </div>

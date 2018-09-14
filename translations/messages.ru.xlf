@@ -10,6 +10,14 @@
                 <source>form.update</source>
                 <target>Обновить</target>
             </trans-unit>
+            <trans-unit id="form.edit">
+                <source>form.edit</source>
+                <target>Редактировать</target>
+            </trans-unit>
+            <trans-unit id="form.delete">
+                <source>form.delete</source>
+                <target>Удалить</target>
+            </trans-unit>
 
             <trans-unit id="form.book.title">
                 <source>form.book.title</source>
@@ -17,7 +25,7 @@
             </trans-unit>
             <trans-unit id="form.book.year">
                 <source>form.book.year</source>
-                <target>Год публикации</target>
+                <target>Год издания</target>
             </trans-unit>
             <trans-unit id="form.book.isbn">
                 <source>form.book.isbn</source>
@@ -76,6 +84,39 @@
             <trans-unit id="site.authors">
                 <source>site.authors</source>
                 <target>Авторы</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.title">
+                <source>site.want_to_help.title</source>
+                <target>Хотите помочь с наполнением каталога?</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.body">
+                <source>site.want_to_help.body</source>
+                <target>Наш каталог ежедневно пополняется новыми книгами, но без помощи добровольцев всего этого не было бы. Если у Вас есть информация о неизвестной нам книге, мы будем рады, если Вы её добавите вместе с автором.</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.create_book">
+                <source>site.want_to_help.create_book</source>
+                <target>Добавить книгу</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.create_author">
+                <source>site.want_to_help.create_author</source>
+                <target>Добавить автора</target>
+            </trans-unit>
+
+            <trans-unit id="site.author.fullname">
+                <source>site.author.fullname</source>
+                <target>ФИО</target>
+            </trans-unit>
+            <trans-unit id="site.author.books_count">
+                <source>site.author.books_count</source>
+                <target>Количество книг</target>
+            </trans-unit>
+            <trans-unit id="site.author.actions">
+                <source>site.author.actions</source>
+                <target>Действия</target>
+            </trans-unit>
+            <trans-unit id="site.author.list">
+                <source>site.author.list</source>
+                <target>Список авторов</target>
             </trans-unit>
         </body>
     </file>

@@ -10,6 +10,14 @@
                 <source>form.update</source>
                 <target>Update</target>
             </trans-unit>
+            <trans-unit id="form.edit">
+                <source>form.edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="form.delete">
+                <source>form.delete</source>
+                <target>Delete</target>
+            </trans-unit>
 
             <trans-unit id="form.book.title">
                 <source>form.book.title</source>
@@ -76,6 +84,39 @@
             <trans-unit id="site.authors">
                 <source>site.authors</source>
                 <target>Authors</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.title">
+                <source>site.want_to_help.title</source>
+                <target>Want to help us?</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.body">
+                <source>site.want_to_help.body</source>
+                <target>Our catalog is growing only because of volunteers, and we appreciate any help from you. If you know any book or author not listed here, feel free to add them!</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.create_book">
+                <source>site.want_to_help.create_book</source>
+                <target>Add a book</target>
+            </trans-unit>
+            <trans-unit id="site.want_to_help.create_author">
+                <source>site.want_to_help.create_author</source>
+                <target>Add an author</target>
+            </trans-unit>
+
+            <trans-unit id="site.author.fullname">
+                <source>site.author.fullname</source>
+                <target>Full name</target>
+            </trans-unit>
+            <trans-unit id="site.author.books_count">
+                <source>site.author.books_count</source>
+                <target>Count of books</target>
+            </trans-unit>
+            <trans-unit id="site.author.actions">
+                <source>site.author.actions</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="site.author.list">
+                <source>site.author.list</source>
+                <target>Authors' list</target>
             </trans-unit>
         </body>
     </file>
