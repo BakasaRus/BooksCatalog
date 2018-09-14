@@ -74,11 +74,7 @@ class AuthorController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            $author = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($author);
-            $entityManager->flush();
-
+            $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('author');
         }
         

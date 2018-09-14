@@ -100,11 +100,8 @@ class BookController extends AbstractController
                 );
             }
 
-            $book = $form->getData();
             $book->setCover($coverName);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($book);
-            $entityManager->flush();
+            $this->getDoctrine()->getManager()->flush();
             
             return $this->redirectToRoute('book');
         }
