@@ -81,6 +81,10 @@
                 <source>site.books</source>
                 <target>Книги</target>
             </trans-unit>
+            <trans-unit id="site.no_books">
+                <source>site.no_books</source>
+                <target>Сожалеем, но книг мы не нашли</target>
+            </trans-unit>
             <trans-unit id="site.authors">
                 <source>site.authors</source>
                 <target>Авторы</target>

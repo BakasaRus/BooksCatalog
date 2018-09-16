@@ -81,6 +81,10 @@
                 <source>site.books</source>
                 <target>Books</target>
             </trans-unit>
+            <trans-unit id="site.no_books">
+                <source>site.no_books</source>
+                <target>Sorry, but there are no books</target>
+            </trans-unit>
             <trans-unit id="site.authors">
                 <source>site.authors</source>
                 <target>Authors</target>

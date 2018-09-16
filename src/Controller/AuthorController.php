@@ -45,7 +45,7 @@ class AuthorController extends AbstractController
             return $this->redirectToRoute('author');
         }
         
-        return $this->render('author/create.html.twig', [
+        return $this->render('form.html.twig', [
             'form' => $form->createView(),
             'title' => 'form.author.create'
         ]);
@@ -78,7 +78,7 @@ class AuthorController extends AbstractController
             return $this->redirectToRoute('author');
         }
         
-        return $this->render('author/create.html.twig', [
+        return $this->render('form.html.twig', [
             'form' => $form->createView(),
             'title' => 'form.author.update'
         ]);

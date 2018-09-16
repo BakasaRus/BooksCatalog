@@ -17,14 +17,14 @@
             {% for author in authors %}
                 <tr>
                     <td data-toggle="tooltip" data-placement="top" title="{{ author.surname }} {{ author.name }} {{ author.midname }}">
-                        <a href="/author/{{ author.id }}">{{ author.fullname }}</a>
+                        <a href="{{ path('author_show', {'id': author.id}) }}">{{ author.fullname }}</a>
                     </td>
                     <td>{{ author.books|length }}</td>
                     <td>
-                        <a class="btn btn-sm btn-icon btn-2 btn-primary" href="/author/{{ author.id }}/edit">
+                        <a class="btn btn-sm btn-icon btn-2 btn-primary" href="{{ path('author_edit', {'id': author.id}) }}">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a class="btn btn-sm btn-icon btn-2 btn-danger" href="/author/{{ author.id }}/remove">
+                        <a class="btn btn-sm btn-icon btn-2 btn-danger" href="{{ path('author_remove', {'id': author.id}) }}">
                             <i class="fa fa-trash"></i>
                         </a>
                     </td>

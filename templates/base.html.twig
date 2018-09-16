@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
-    <meta name="author" content="Creative Tim">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="description" content="Small Symfony app to catalog your books">
+    <meta name="author" content="ITMO University">
+    <title>{% block title %}{{ 'site.title'|trans }}{% endblock %}</title>
     {% block stylesheets %}
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
-    <link href="/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-    <link href="/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
+    <link href="{{ asset('/assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- Argon CSS -->
-    <link type="text/css" href="/assets/css/argon.css?v=1.0.1" rel="stylesheet">
+    <link type="text/css" href="{{ asset('/assets/css/argon.css') }}" rel="stylesheet">
     <!-- Docs CSS -->
-    <link type="text/css" href="/assets/css/docs.min.css" rel="stylesheet">
+    <link type="text/css" href="{{ asset('/assets/css/docs.min.css') }}" rel="stylesheet">
     {% endblock %}
 </head>
 
@@ -24,7 +24,7 @@
   <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">
-        <a class="navbar-brand mr-lg-5" href="/">
+        <a class="navbar-brand mr-lg-5" href="{{ path('homepage') }}">
           <h1 class="display-4 text-white">{{ 'site.title'|trans }}</h1>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,13 +48,13 @@
           </div>
           <ul class="navbar-nav align-items-lg-center ml-lg-auto">
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="/book">
+              <a class="nav-link nav-link-icon" href="{{ path('book') }}">
                 <i class="fa fa-book"></i>
                 <span class="nav-link-inner--text">{{ 'site.books'|trans }}</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="/author">
+              <a class="nav-link nav-link-icon" href="{{ path('author') }}">
                 <i class="fa fa-user"></i>
                 <span class="nav-link-inner--text">{{ 'site.authors'|trans }}</span>
               </a>
@@ -101,13 +101,13 @@
                           {{ 'site.want_to_help.body'|trans }}
                       </p>
                       <div class="btn-wrapper">
-                          <a href="/book/create" class="btn btn-primary">
+                          <a href="{{ path('book_create') }}" class="btn btn-primary">
                               <span class="btn-inner--icon">
                                   <i class="fa fa-plus mr-2"></i>
                               </span>
                               <span>{{ 'site.want_to_help.create_book'|trans }}</span>
                           </a>
-                          <a href="/author/create" class="btn btn-primary">
+                          <a href="{{ path('author_create') }}" class="btn btn-primary">
                               <span class="btn-inner--icon">
                                   <i class="fa fa-plus mr-2"></i>
                               </span>
@@ -128,7 +128,7 @@
         <div class="col-md-6">
           <div class="copyright">
             &copy; 2018
-            <a href="/">{{ 'site.title'|trans }}</a>.
+            <a href="{{ path('homepage') }}">{{ 'site.title'|trans }}</a>.
           </div>
         </div>
         <div class="col-md-6">
@@ -146,12 +146,12 @@
   </footer>
   {% block javascripts %}
   <!-- Core -->
-  <script src="../assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/vendor/popper/popper.min.js"></script>
-  <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="../assets/vendor/headroom/headroom.min.js"></script>
+  <script src="{{ asset('/assets/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/popper/popper.min.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/bootstrap/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('/assets/vendor/headroom/headroom.min.js') }}"></script>
   <!-- Argon JS -->
-  <script src="../assets/js/argon.js?v=1.0.1"></script>
+  <script src="{{ asset('/assets/js/argon.js') }}"></script>
   {% endblock %}
 </body>
 
