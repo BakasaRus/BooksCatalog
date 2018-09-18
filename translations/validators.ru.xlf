@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="validators.author.exists">
+                <source>validators.author.exists</source>
+                <target>Автор с такими данными уже существует</target>
+            </trans-unit>
+            <trans-unit id="validators.author.name">
+                <source>validators.author.name</source>
+                <target>Введите имя</target>
+            </trans-unit>
+            <trans-unit id="validators.author.surname">
+                <source>validators.author.surname</source>
+                <target>Введите фамилию</target>
+            </trans-unit>
+            <trans-unit id="validators.author.midname">
+                <source>validators.author.midname</source>
+                <target>Введите отчество</target>
+            </trans-unit>
+
+            <trans-unit id="validators.book.exists_isbn">
+                <source>validators.book.exists_isbn</source>
+                <target>Книга с таким ISBN уже существует</target>
+            </trans-unit>
+            <trans-unit id="validators.book.exists_title_pub">
+                <source>validators.book.exists_title_pub</source>
+                <target>Книга с таким названием и годом выпуска уже существует</target>
+            </trans-unit>
+            <trans-unit id="validators.book.title">
+                <source>validators.book.title</source>
+                <target>Введите название книги</target>
+            </trans-unit>
+            <trans-unit id="validators.book.pub_year">
+                <source>validators.book.pub_year</source>
+                <target>Введите год публикации</target>
+            </trans-unit>
+            <trans-unit id="validators.book.isbn">
+                <source>validators.book.isbn</source>
+                <target>Введите ISBN</target>
+            </trans-unit>
+            <trans-unit id="validators.book.isbn_invalid">
+                <source>validators.book.isbn_invalid</source>
+                <target>Введите корректный ISBN. Поддерживаются как ISBN-10, так и ISBN-13</target>
+            </trans-unit>
+            <trans-unit id="validators.book.pages">
+                <source>validators.book.pages</source>
+                <target>Введите количество страниц</target>
+            </trans-unit>
+            <trans-unit id="validators.book.cover_formats">
+                <source>validators.book.cover_formats</source>
+                <target>Обложка должна быть в формате JPEG или PNG</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

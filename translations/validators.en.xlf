@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="validators.author.exists">
+                <source>validators.author.exists</source>
+                <target>This author already exists in catalog</target>
+            </trans-unit>
+            <trans-unit id="validators.author.name">
+                <source>validators.author.name</source>
+                <target>Name cannot be empty</target>
+            </trans-unit>
+            <trans-unit id="validators.author.surname">
+                <source>validators.author.surname</source>
+                <target>Surname cannot be empty</target>
+            </trans-unit>
+            <trans-unit id="validators.author.midname">
+                <source>validators.author.midname</source>
+                <target>Middle name cannot be empty</target>
+            </trans-unit>
+
+            <trans-unit id="validators.book.exists_isbn">
+                <source>validators.book.exists_isbn</source>
+                <target>Book with this ISBN already exists</target>
+            </trans-unit>
+            <trans-unit id="validators.book.exists_title_pub">
+                <source>validators.book.exists_title_pub</source>
+                <target>Book with this title and year of publication already exists</target>
+            </trans-unit>
+            <trans-unit id="validators.book.title">
+                <source>validators.book.title</source>
+                <target>Title cannot be empty</target>
+            </trans-unit>
+            <trans-unit id="validators.book.pub_year">
+                <source>validators.book.pub_year</source>
+                <target>Year of publication cannot be empty</target>
+            </trans-unit>
+            <trans-unit id="validators.book.isbn">
+                <source>validators.book.isbn</source>
+                <target>ISBN cannot be empty</target>
+            </trans-unit>
+            <trans-unit id="validators.book.isbn_invalid">
+                <source>validators.book.isbn_invalid</source>
+                <target>ISBN should be in correct format. Both ISBN-10 and ISBN-13 formats are supported</target>
+            </trans-unit>
+            <trans-unit id="validators.book.pages">
+                <source>validators.book.pages</source>
+                <target>Count of pages cannot be empty</target>
+            </trans-unit>
+            <trans-unit id="validators.book.cover_formats">
+                <source>validators.book.cover_formats</source>
+                <target>Cover should be in JPEG or PNG format</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -11,12 +11,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
  * @UniqueEntity(
- *  "isbn", 
- *  message="Книга с таким ISBN уже имеется в каталоге"
+ *      "isbn", 
+ *      message="validators.book.exists_isbn"
  * )
  * @UniqueEntity(
  *      fields={"title", "publicationYear"}, 
- *      message="Книга с таким названием и годом публикации уже имеется в каталоге"
+ *      message="validators.book.exists_title_pub"
  * )
  */
 class Book
@@ -30,25 +30,29 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="validators.book.title")
      */
     private $title;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Assert\NotBlank(message="validators.book.pub_year")
      */
     private $publicationYear;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="validators.book.isbn")
      * @Assert\Isbn(
      *     type="isbn13",
-     *     message="Нужно ввести правильное значение ISBN-13"
+     *     message="validators.book.isbn_invalid"
      * )
      */
     private $isbn;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="validators.book.pages")
      */
     private $pageCount;
 
@@ -60,8 +64,8 @@ class Book
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Image(
-     *      mimeTypes={"image/png", "image/jpeg"},
-     *      mimeTypesMessage="Каталог поддерживает обложки форматов PNG и JPEG"
+     *     mimeTypes={"image/png", "image/jpeg"},
+     *     mimeTypesMessage="validators.book.cover_formats"
      * )
      */
     private $cover;
