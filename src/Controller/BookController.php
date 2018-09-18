@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Book;
 use App\Entity\Author;
 use App\Form\BookType;
+use App\Service\FileUploader;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,7 +30,7 @@ class BookController extends AbstractController
     /**
      * @Route("/book/create", name="book_create")
      */
-    public function create(Request $request)
+    public function create(Request $request, FileUploader $fileUploader)
     {
         $book = new Book();
         $form = $this->createForm(BookType::class, $book)
@@ -41,16 +42,7 @@ class BookController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $file = $form['cover']->getData();
-            $coverName = 'placeholder.jpg';
-            if (!is_null($file) && $file->isValid())
-            {
-                $coverName = md5(uniqid()) . '.' . $file->guessExtension();
-                $file->move(
-                    $this->getParameter('covers_directory'),
-                    $coverName
-                );
-            }
-
+            $coverName = $fileUploader->upload($file);
             $book = $form->getData();
             $book->setCover($coverName);
             $entityManager = $this->getDoctrine()->getManager();
@@ -79,9 +71,9 @@ class BookController extends AbstractController
     /**
      * @Route("/book/{id}/edit", name="book_edit")
      */
-    public function edit(Book $book, Request $request)
+    public function edit(Book $book, Request $request, FileUploader $fileUploader)
     {
-        $coverName = $book->getCover();
+        $oldCoverName = $book->getCover();
         $form = $this->createForm(BookType::class, $book)
             ->add('submit', SubmitType::class, [
                 'label' => 'form.update'
@@ -91,18 +83,9 @@ class BookController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             $file = $form['cover']->getData();
-            if (!is_null($file) && $file->isValid())
-            {
-                $coverName = md5(uniqid()) . '.' . $file->guessExtension();
-                $file->move(
-                    $this->getParameter('covers_directory'),
-                    $coverName
-                );
-            }
-
+            $coverName = $fileUploader->upload($file, $oldCoverName);
             $book->setCover($coverName);
             $this->getDoctrine()->getManager()->flush();
-            
             return $this->redirectToRoute('book');
         }
 
