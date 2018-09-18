@@ -15,9 +15,9 @@ class FileUploader
         $this->defaultFallback = $defaultFallback;
     }
 
-    public function upload(?UploadedFile $file, string $fallback = '')
+    public function upload(?UploadedFile $file, ?string $fallback = null)
     {
-        $fileName = $fallback != '' ? $fallback : $this->getDefaultFallback();
+        $fileName = is_null($fallback) ? $this->getDefaultFallback() : $fallback;
         if (!is_null($file) && $file->isValid())
         {
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
