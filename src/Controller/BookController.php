@@ -48,8 +48,7 @@ class BookController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();
-
-            return $this->redirectToRoute('book');
+            return $this->redirectToRoute('book_show', ['id' => $book->getId()]);
         }
 
         return $this->render('form.html.twig', [
@@ -86,7 +85,7 @@ class BookController extends AbstractController
             $coverName = $fileUploader->upload($file, $oldCoverName);
             $book->setCover($coverName);
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('book');
+            return $this->redirectToRoute('book_show', ['id' => $book->getId()]);
         }
 
         return $this->render('form.html.twig', [
